@@ -2,7 +2,7 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/marinierb/ansible-manjaro-setup)
 
-## Custom configure my personal Manjaro desktop and laptop
+## Custom configure my personal Manjaro desktop
 
 - Can be used to build from scratch or to fix or restore broken stuff.
 - Installs and configures all software, peripherals, etc.
