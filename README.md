@@ -18,7 +18,7 @@ There are some neat roles in here. Steal with pride!
 
 I run expressvpn. Because it does not support split-tunneling on Linux, I have a role called **novpn-service** that creates a service called **novpn**. This service automatically creates, at startup, a namespace outside of the VPN tunnel. I can then run applications in that namespace to bypass the VPN. And because some web sites block access from VPNs, the **chrome** and **firefox** roles create some local desktop launchers that allow me to lauch those browsers in that namespace. 
 
-## Steps to rebuild from scratch
+## Steps to rebuild my desktop from scratch
 
 >**In a nutshell:**
 ><br>My ansible folder is on Dropbox. So, get Manjaro up and running, install and sync Dropbox, then run ansible
