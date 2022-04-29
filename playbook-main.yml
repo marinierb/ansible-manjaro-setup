@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: bruno-desktop
   roles:
   - { role: "packages",         tags: "packages"         }
   - { role: "mounts",           tags: "mounts"           }
@@ -23,13 +23,6 @@
   - { role: "chrome",           tags: "chrome"           }
   - { role: "firefox",          tags: "firefox"          }
   - { role: "transmission",     tags: "transmission"     }
-
-# - hosts: bruno-laptop
-#   roles:
-#   - { role: "net-novpn-on-login",   tags: "novpn"            }
-  
-- hosts: bruno-desktop
-  roles:
   - { role: "printer",           tags: "printer"          }
   - { role: "scanner",           tags: "scanner"          }
   - { role: "novpn-service",     tags: "novpn"            }

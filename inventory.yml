@@ -9,10 +9,6 @@ all:
           - { path: "/zm",    src: "LABEL=zm",    fstype: "ext4", opts: "noatime,nosuid,nodev" }
           packages_remove_additional: 
           - "tlp"
-    laptops:
-      hosts:
-        bruno-laptop:
-          ansible_connection: local #192.168.0.11
   vars:
     ansible_python_interpreter: /usr/bin/python
     user:           "bruno"
