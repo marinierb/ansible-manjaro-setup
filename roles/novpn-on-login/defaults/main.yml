@@ -1,2 +1,0 @@
-# Defaults for novpn namespace
-destDir: "{{userDir}}/.config/autostart/"

@@ -15,7 +15,6 @@
   - { role: "virtualbox",       tags: "virtualbox"       }
   - { role: "expressvpn",       tags: "expressvpn"       }
   - { role: "gnome",            tags: "gnome"            }
-  - { role: "gnome-extensions", tags: "extensions"       }
 #  - { role: "docker",           tags: "docker"           }
   - { role: "vscode",           tags: "vscode"           }
   - { role: "grub",             tags: "grub"             }
