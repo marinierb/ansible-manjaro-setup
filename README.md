@@ -108,9 +108,13 @@ Some roles will attempt to recover data and configurations from backups. These r
 
 The backups are created using ansible via the ***backup*** script and a series of roles and data directories in the ***backups*** directory.
 
-- To run a backup
+To run a backup
+
+        → Look for the appropriate tag in the backups playbook
+        → Or don't specify a tag to back up everything
+
 ```
-./backup [tag] (see backups playbook for tags)
+./backup [tag]
 ```
 
 The ***gnome*** backup, however, works differently. It extracts specific gnome settings and creates ansible tasks directly in the *gnome* role. These tasks are extensively tagged so that specific settings can be restored.
