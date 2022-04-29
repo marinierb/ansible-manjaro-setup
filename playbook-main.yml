@@ -1,0 +1,39 @@
+- hosts: all
+  roles:
+  - { role: "packages",         tags: "packages"         }
+  - { role: "mounts",           tags: "mounts"           }
+  - { role: "sudoers",          tags: "sudoers"          }
+  - { role: "defaultshell",     tags: "defaultshell"     }
+  - { role: "cron",             tags: "cron"             }
+  - { role: "fstrim",           tags: "fstrim"           }
+  - { role: "journal",          tags: "journal"          }
+  - { role: "timesync",         tags: "timesync"         }
+  - { role: "dropboxlinks",     tags: "dropboxlinks"     }
+  - { role: "bash",             tags: "bash"             }
+  - { role: "userdirs",         tags: "userdirs"         }
+  - { role: "libreoffice",      tags: "libreoffice"      }
+  - { role: "virtualbox",       tags: "virtualbox"       }
+  - { role: "expressvpn",       tags: "expressvpn"       }
+  - { role: "gnome",            tags: "gnome"            }
+  - { role: "gnome-extensions", tags: "extensions"       }
+#  - { role: "docker",           tags: "docker"           }
+  - { role: "vscode",           tags: "vscode"           }
+  - { role: "grub",             tags: "grub"             }
+  - { role: "services",         tags: "services"         }
+  - { role: "chrome",           tags: "chrome"           }
+  - { role: "firefox",          tags: "firefox"          }
+  - { role: "transmission",     tags: "transmission"     }
+
+# - hosts: bruno-laptop
+#   roles:
+#   - { role: "net-novpn-on-login",   tags: "novpn"            }
+  
+- hosts: bruno-desktop
+  roles:
+  - { role: "printer",           tags: "printer"          }
+  - { role: "scanner",           tags: "scanner"          }
+  - { role: "novpn-service",     tags: "novpn"            }
+  - { role: "ssh",               tags: "ssh"              }
+  - { role: "nfs",               tags: "nfs"              }
+  - { role: "smb",               tags: "smb"              }
+  - { role: "zoneminder",        tags: "zoneminder"       }

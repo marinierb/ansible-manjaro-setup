@@ -1,0 +1,6 @@
+# handler for smb
+- name: restart smb
+  ansible.builtin.service:
+    name: smb
+    state: restarted
+  become: true

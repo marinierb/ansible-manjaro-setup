@@ -1,0 +1,8 @@
+# Defaults for mfpBrother
+packages:
+- simple-scan
+aurPackages:
+- brscan4
+scanName: "Scanner"
+scanModel: "DCP-7065DN"
+scanGroup: "scanner"

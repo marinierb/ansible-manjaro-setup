@@ -1,0 +1,8 @@
+# defaults for docker
+packages:
+- docker
+- docker-compose
+group: docker
+service: docker
+serviceState: started
+serviceEnabled: yes

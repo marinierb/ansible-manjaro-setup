@@ -1,0 +1,6 @@
+# tasks file for extensions
+- name: customize command output
+  ansible.builtin.copy:
+    src: command_output_stylesheet.css
+    dest: "{{dropboxDir}}/GnomeShellExtensions/commandoutput@elken.tdos.gmail.com/stylesheet.css"
+    force: yes

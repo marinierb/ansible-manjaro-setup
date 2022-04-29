@@ -1,0 +1,14 @@
+# defaults file for userdirs
+config: "~/.config/user-dirs.dirs"
+userDirs:
+- { name: "DOCUMENTS", dir: "$HOME/Dropbox/Documents" }
+- { name: "VIDEOS",    dir: "/other/Videos" }
+# NAME should be one of the following:
+#     DESKTOP
+#     DOWNLOAD
+#     TEMPLATES
+#     PUBLICSHARE
+#     DOCUMENTS
+#     MUSIC
+#     PICTURES
+#     VIDEOS

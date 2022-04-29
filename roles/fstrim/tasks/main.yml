@@ -1,0 +1,7 @@
+# tasks file for fstrim
+- name: timer start
+  ansible.builtin.systemd:
+    name:  "{{serviceName}}"
+    state: "{{serviceState}}"
+    enabled: "{{serviceEnabled}}"
+  become: true

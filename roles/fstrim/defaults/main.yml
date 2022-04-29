@@ -1,0 +1,4 @@
+# defaults file for fstrim
+serviceName:  fstrim.timer
+serviceState: started
+serviceEnabled: yes

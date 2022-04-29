@@ -1,0 +1,9 @@
+# handler for expressvpn
+- name: vpn_info
+  ansible.builtin.debug:
+    msg:
+    -  "--> Additional steps required:"
+    -  "-->     expressvpn activate"
+    -  "-->     expressvpn preferences preferred_protocol lightway_udp"
+    -  "-->     expressvpn connect"
+    -  "-->     expressvpn autoconnect yes"

@@ -1,0 +1,13 @@
+# Defaults for virtualbox
+kernel:
+  "{{ ansible_kernel.split('.')[0] }}{{ ansible_kernel.split('.')[1] }}"
+packages:
+- virtualbox
+- linux{{kernel}}-virtualbox-host-modules
+- virtualbox-guest-iso
+hook:
+  hook:      custom-virtualbox-post.hook
+  hookDir:   /usr/share/libalpm/hooks
+  script:    install-vbox-extpack.sh
+  scriptDir: /usr/bin
+group: vboxusers

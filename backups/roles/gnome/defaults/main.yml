@@ -1,0 +1,4 @@
+# defaults for gnome
+backupDir:       "backups/data/gnome{{skip_restore|default()}}"
+backupScript:    "backups/roles/gnome/files/backupGnome"
+ansibleRolesDir: "roles"

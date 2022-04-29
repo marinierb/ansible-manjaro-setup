@@ -1,0 +1,21 @@
+# tasks file for docker
+- name: install
+  ansible.builtin.package:
+    name: "{{item}}"
+    state: present
+  with_items: "{{packages}}"
+  become: true
+
+- name: add user to group
+  ansible.builtin.user:
+    name: "{{user}}"
+    groups: "{{group}}"
+    append: yes
+  become: true
+  
+- name: start
+  ansible.builtin.systemd:
+    name: "{{service}}"
+    state: "{{serviceState}}"
+    enabled: "{{serviceEnabled}}"
+  become: true

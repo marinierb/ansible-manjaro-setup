@@ -1,0 +1,6 @@
+# handler for nfs
+- name: reload nfs
+  ansible.builtin.command: 
+    cmd: exportfs -arv
+  become: true
+  changed_when: false

@@ -1,0 +1,33 @@
+# tasks file for vscode backup
+
+# rsync -av --delete ~/.config/'Code - OSS'/User $mainBackupDir/vscode$skipRestore/ \
+#  --exclude="*Storage"
+
+# echo "Export extensions list..."
+# ext=$bdir/extensions.yml
+# echo "# List of extensions for vscode
+# extensions:" >$ext
+# for l in `code --list-extensions`
+# do
+#   echo "- \"$l\"" >>$ext
+# done
+
+- name: sync backup
+  ansible.builtin.synchronize:
+    src:  "{{configDir}}"
+    dest: "{{backupDir}}/"
+    rsync_opts: '--exclude="*Storage"'
+    delete: yes
+
+- name: get extension list
+  ansible.builtin.shell:
+    cmd: "echo \"# List of extensions for vscode\nextensions:\" ; code --list-extensions | sed -e 's/^/- \"/' -e 's/$/\"/'"
+  register: out
+
+- name: create formatted extension list
+  copy:
+    content: "{{out.stdout}}"
+    dest:    "{{backupDir}}/{{extList}}"
+
+#code --list-extensions | sed -e 's/^/- "/' -e 's/$/"/'
+

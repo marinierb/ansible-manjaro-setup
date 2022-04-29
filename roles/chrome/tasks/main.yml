@@ -1,0 +1,11 @@
+# tasks file for chrome
+- name: create local launcher file
+  ansible.builtin.template:
+    src: google-chrome.desktop
+    dest: "{{localLauncherDir}}"
+
+- name: install
+  aur:
+    name: "{{item}}"
+    state: present
+  with_items: "{{packages}}"

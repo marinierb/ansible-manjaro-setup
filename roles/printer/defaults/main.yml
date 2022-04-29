@@ -1,0 +1,14 @@
+# Defaults for printer
+packages:
+- manjaro-printer
+- system-config-printer
+aurPackages:
+- brlaser
+service: "cups.service"
+mfpName: "DCP-7065DN"
+printURI: "lpd://{{printerIP}}/BINARY_P1"
+printDriver: "drv:///brlaser.drv/br7065dn.ppd"
+printOptions:
+- "PageSize=Letter"
+- "Duplex=DuplexNoTumble"
+#- "sides=two-sided-long-edge"

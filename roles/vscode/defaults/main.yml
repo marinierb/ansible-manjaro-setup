@@ -1,0 +1,6 @@
+# Defaults for vscode
+packages:
+- code
+backupDir: "{{mainBackupDir}}/vscode"
+configDir: "{{userDir}}/.config/Code - OSS"
+workspace: "{{dropboxDir}}/bruno.code-workspace"

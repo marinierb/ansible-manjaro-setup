@@ -1,0 +1,4 @@
+{{user}} ALL=(ALL) NOPASSWD: /usr/bin/encfs -u /home/{{user}}/.OtherMounted
+{{user}} ALL=(ALL) NOPASSWD: /usr/bin/encfs -S --public /home/{{user}}/.Other /home/{{user}}/.OtherMounted
+{{user}} ALL=(ALL) NOPASSWD: /usr/bin/rm /home/{{user}}/Serviio/*
+{{user}} ALL=(ALL) NOPASSWD: /usr/bin/ip netns exec novpn *

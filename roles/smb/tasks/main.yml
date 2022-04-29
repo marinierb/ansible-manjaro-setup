@@ -1,0 +1,38 @@
+# tasks file for smb
+- name: install
+  ansible.builtin.package:
+    name: "{{item}}"
+    state: present
+  with_items: "{{packages}}"
+  become: true
+  register: s
+
+- name: set samba password for main user
+  ansible.builtin.shell: "printf '{{ lookup('env', 'main') }}\n{{ lookup('env', 'password') }}\n' | smbpasswd -a {{ user }}"
+  become: true
+  when: s.changed
+
+# - name: create media user
+#   ansible.builtin.user:
+#     name: "{{ mediaUser }}"
+#     group: "{{ mediaGroup }}"
+#     create_home: "{{ mediaUserHome }}"
+#   become: true
+#   register: s
+  
+# - name: set samba password for media user
+#   ansible.builtin.shell: "printf '{{ lookup('env', 'mediaPassword') }}\n{{ lookup('env', 'mediaPassword') }}\n' | smbpasswd -a {{ mediaUser }}"
+#   become: true
+#   when: s.changed
+
+- name: Configuring samba shares
+  template:
+    src: smb.conf
+    dest: /etc/samba/smb.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  notify:
+    - restart smb
+

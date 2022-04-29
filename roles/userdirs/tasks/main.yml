@@ -1,0 +1,4 @@
+# tasks file for userdirs
+- name: set user dirs
+  include_tasks: set.yml
+  with_items: "{{userDirs}}"

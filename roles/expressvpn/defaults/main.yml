@@ -1,0 +1,4 @@
+# Defaults for vpn
+aurPackages:
+- expressvpn
+service: expressvpn

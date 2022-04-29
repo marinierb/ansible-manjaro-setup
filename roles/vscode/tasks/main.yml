@@ -1,0 +1,32 @@
+# tasks file for vscode
+- name: install with dependencies
+  ansible.builtin.package:
+    name: "{{item}}"
+    state: present
+  with_items: "{{packages}}"
+  become: true
+
+- name: look for backup
+  ansible.builtin.stat:
+    path: "{{backupDir}}"
+  register: st
+  
+- block:
+  - name: recover config files
+    ansible.builtin.synchronize:
+      src: "{{backupDir}}/User"
+      dest: "{{configDir}}"
+  - name: Load extensions list from backup
+    ansible.builtin.include_vars:
+      file: "{{backupDir}}/extensions.yml"
+  - name: install extensions
+    ansible.builtin.command: "code --install-extension {{item}}"
+    register: result
+    changed_when: '"successfully installed" in result.stdout'
+    with_items: "{{extensions}}"
+  when: st.stat.isdir is defined
+
+- name: create local launcher file
+  ansible.builtin.template:
+    src: code-oss.desktop
+    dest: "{{userDir}}/.local/share/applications"

@@ -1,0 +1,14 @@
+# tasks file for set userdirs
+- name: info
+  ansible.builtin.debug:
+    msg: "userdir: {{ item.name }} --> {{ item.dir }}"
+
+- name: check if set
+  ansible.builtin.shell: "grep -q '{{item.dir}}' {{config}}"
+  register: user_dirs_set
+  ignore_errors: true
+  changed_when: false
+  
+- name: set
+  ansible.builtin.command: "xdg-user-dirs-update --set {{item.name}} {{item.dir}}"
+  when: user_dirs_set.rc == 1

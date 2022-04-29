@@ -1,0 +1,11 @@
+# tasks file for timesync
+- name: check if enabled
+  ansible.builtin.shell: timedatectl | grep -q 'NTP service. active'
+  register: time_sync_enabled
+  ignore_errors: true
+  changed_when: false
+  
+- name: enable
+  ansible.builtin.command: timedatectl set-ntp true
+  become: true
+  when: time_sync_enabled.rc == 1

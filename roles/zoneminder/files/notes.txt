@@ -1,0 +1,8 @@
+# To fix:
+# root@08275d0a028d:/ZoneMinder# zmupdate.pl 
+# Can't locate Crypt/Eksblowfish/Bcrypt.pm in @INC (you may need to install the Crypt::Eksblowfish::Bcrypt module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.22.1 /usr/local/share/perl/5.2
+# 2.1 /usr/lib/x86_64-linux-gnu/perl5/5.22 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.22 /usr/share/perl/5.22 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base .) at /usr/local/bin/zmupdate.pl
+# line 54.
+# BEGIN failed--compilation aborted at /usr/local/bin/zmupdate.pl line 54.
+
+sudo cpan -i Crypt::Eksblowfish::Bcrypt Data::Entropy::Algorithms Sys::Mmap

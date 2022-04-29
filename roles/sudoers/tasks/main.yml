@@ -1,0 +1,7 @@
+# tasks file for sudoers
+- name: install
+  ansible.builtin.template:
+    src: sudoers
+    dest: /etc/sudoers.d/{{user}}
+    mode: 0600
+  become: true

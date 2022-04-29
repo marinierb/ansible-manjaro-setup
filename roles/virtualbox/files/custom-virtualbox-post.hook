@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = virtualbox
+
+[Action]
+Description = --> Running custom hook: [install virtualbox ext pack]
+When = PostTransaction
+Exec = /usr/bin/install-vbox-extpack.sh

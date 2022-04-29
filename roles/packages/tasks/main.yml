@@ -1,0 +1,28 @@
+# tasks file for packages
+- name: install
+  ansible.builtin.package:
+    name: "{{item}}"
+    state: present
+  when: item
+  with_items:
+  - "{{ packages_add }}"
+  - "{{ packages_add_additional }}"
+  become: true
+- name: aur install
+  aur:
+    name: "{{item}}"
+    state: present
+  when: item
+  with_items:
+  - "{{ packages_add_aur }}"
+  - "{{ packages_aur_add_additional }}"
+- name: uninstall
+  ansible.builtin.package:
+    name: "{{item}}"
+    state: absent
+  when: item
+  with_items:
+  - "{{ packages_remove }}"
+  - "{{ packages_remove_additional }}"
+  become: true
+  

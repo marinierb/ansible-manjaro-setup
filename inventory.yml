@@ -1,0 +1,26 @@
+all:
+  children:
+    desktops:
+      hosts:
+        bruno-desktop:
+          ansible_connection: local #192.168.0.10
+          mounts:
+          - { path: "/other", src: "LABEL=other", fstype: "ext4", opts: "noatime,nosuid,nodev" }
+          - { path: "/zm",    src: "LABEL=zm",    fstype: "ext4", opts: "noatime,nosuid,nodev" }
+          packages_remove_additional: 
+          - "tlp"
+    laptops:
+      hosts:
+        bruno-laptop:
+          ansible_connection: local #192.168.0.11
+  vars:
+    ansible_python_interpreter: /usr/bin/python
+    user:           "bruno"
+    userDir:        "/home/{{user}}"
+    dropboxDir:     "{{userDir}}/Dropbox/Linux"
+    packages_add_additional:
+    packages_remove_additional:
+    packages_aur_add_additional:
+    mainBackupDir: "{{dropboxDir}}/ansible/backups/data"
+    rolesDir:      "{{dropboxDir}}/ansible/roles"
+    skip_restore:  ".skiprestore"

@@ -1,0 +1,39 @@
+# Defaults for nfs
+packages:
+- nfs-utils
+
+service: nfs-server
+state: started #stopped
+enabled: yes #no
+
+eboxBas:  "192.168.0.155"
+eboxHaut: "192.168.0.174"
+phone:    "192.168.0.12"
+laptop:   "192.168.0.11"
+
+mediaClients:
+- "{{eboxBas}}"
+- "{{eboxHaut}}"
+- "{{phone}}"
+- "{{laptop}}"
+mediaShares:
+- "{{userDir}}/Music"
+- "{{userDir}}/Pictures"
+- "/other/Movies"
+- "/other/TV"
+- "/other/Videos"
+- "/other/LooneyTunes"
+mediaOpts: "(ro,all_squash,insecure,no_subtree_check)"
+
+encfsShare: "{{userDir}}/.OtherMounted"
+encfsOpts:  "(fsid=2,ro,all_squash,insecure,no_subtree_check,anongid=1000)"
+
+kodiBackupBas: "{{userDir}}/Dropbox/Backups/KodiBas"
+kodiBackupBasClients:
+- "{{eboxBas}}"
+- "{{phone}}"
+kodiBackupHaut:   "{{userDir}}/Dropbox/Backups/KodiHaut"
+kodiBackupHautClients:
+- "{{eboxHaut}}"
+- "{{phone}}"
+kodiBackupOpts:   "(rw,all_squash,insecure,no_subtree_check,anongid=1000)"

@@ -1,0 +1,14 @@
+#!/usr/bin/sh
+# Creates the novpn namespace
+#
+phys=`route | grep '^default' | grep -o '[^ ]*$'`
+#
+ip netns add {{service.name}}
+ip link add {{vlan}} link $phys type ipvlan mode l2
+ip link set {{vlan}} netns {{service.name}}
+ip netns exec {{service.name}} ip link set lo up
+ip netns exec {{service.name}} ip link set {{vlan}} up
+ip netns exec {{service.name}} ip addr add {{ip}} dev {{vlan}}
+ip netns exec {{service.name}} ip route add default via {{gateway}} dev {{vlan}}
+mkdir -p /etc/netns/{{service.name}}
+echo nameserver {{gateway}} >/etc/netns/{{service.name}}/resolv.conf

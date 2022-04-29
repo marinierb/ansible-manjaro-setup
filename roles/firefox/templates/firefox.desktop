@@ -1,0 +1,31 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox on VPN
+GenericName=Web Browser
+Comment=Browse the World Wide Web
+Exec=/usr/lib/firefox/firefox %u
+#Exec=sudo ip netns exec novpn su -c "firefox %u" {{user}}
+Icon=firefox
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;application/pdf;application/json;
+StartupNotify=true
+StartupWMClass=firefox
+Categories=Network;WebBrowser;
+Actions=onvpn;novpn;private-on-vpn;
+
+[Desktop Action onvpn]
+Name=On VPN
+Exec=/usr/lib/firefox/firefox %u
+#Exec=sudo ip netns exec novpn su -c "firefox %u"  {{user}}
+
+[Desktop Action novpn]
+Name=No VPN
+#Exec=/usr/lib/firefox/firefox --new-window %u
+Exec=sudo ip netns exec novpn su -c "firefox %u"  {{user}}
+
+[Desktop Action private-on-vpn]
+Name=Private on VPN
+Exec=/usr/lib/firefox/firefox --private-window %u
+#Exec=sudo ip netns exec novpn su -c "firefox --private-window %u"  {{user}}

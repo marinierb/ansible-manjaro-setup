@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = zoneminder
+
+[Action]
+Description = --> Running custom hook: [zoneminder update]
+When = PostTransaction
+Exec = /bin/sh -c 'zmupdate.pl --nointeractive ; zmupdate.pl --nointeractive --freshen > /dev/null 2>&1 ; zmcamtool.pl --import > /dev/null 2>&1'

@@ -1,0 +1,9 @@
+# tasks file for transmission backup
+
+# rsync -av ~/.config/transmission/settings.json $mainBackupDir/transmission$skipRestore/settings.json
+
+- name: sync backup
+  ansible.builtin.synchronize:
+    src:  "{{configFile}}"
+    dest: "{{backupDir}}/"
+    delete: yes

@@ -1,0 +1,6 @@
+# Defaults for services
+services:
+- { name: lvm2-monitor, state: stopped, enabled: no, masked: yes }
+#- { name: docker, state: stopped, enabled: no, masked: yes }
+#- { name: docker.socket, state: stopped, enabled: no, masked: yes }
+#- { name: wpa_supplicant, state: stopped, enabled: no, masked: yes }

@@ -1,0 +1,14 @@
+# Custom built service to create a novpn namespace at startup
+
+[Unit]
+Description=netns to bypass vpn
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+RemainAfterExit=yes
+ExecStart={{service.scriptsDir}}/{{service.scriptStart}}
+ExecStop={{service.scriptsDir}}/{{service.scriptStop}}
+
+[Install]
+WantedBy=multi-user.target

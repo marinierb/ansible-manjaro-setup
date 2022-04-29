@@ -1,0 +1,14 @@
+# tasks file for sshd
+- name: install .ssh files
+  ansible.builtin.copy:
+    src: "{{item}}"
+    dest: "{{userDir}}/.ssh"
+  with_items: "{{sshfiles}}"
+  
+- name: enable and start
+  ansible.builtin.systemd:
+    name:  "{{service}}"
+    state: started
+    enabled: yes
+  become: true
+

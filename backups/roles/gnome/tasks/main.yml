@@ -1,0 +1,16 @@
+# tasks file for gnome backup
+
+- name: create backup dir
+  ansible.builtin.file:
+    path: "{{backupDir}}"
+    state: directory
+
+- name: run the backup script
+  ansible.builtin.shell:
+    cmd: "{{backupScript}} {{backupDir}} {{skip_restore}} {{ansibleRolesDir}}"
+  register: out
+
+- name: log
+  copy:
+    content: "{{out.stdout}}"
+    dest:    "{{backupDir}}/log.txt"

@@ -1,0 +1,4 @@
+# defaults for chrome
+packages:
+- google-chrome
+localLauncherDir: "{{userDir}}/.local/share/applications"

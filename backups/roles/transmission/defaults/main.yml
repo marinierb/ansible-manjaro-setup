@@ -1,0 +1,3 @@
+# defaults for transmission
+configFile: "{{userDir}}/.config/transmission/settings.json"
+backupDir: "backups/data/transmission{{skip_restore|default()}}"

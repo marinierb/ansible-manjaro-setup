@@ -1,0 +1,6 @@
+# tasks file for defaultshell
+- name: set default shell
+  ansible.builtin.user:
+    name: "{{user}}"
+    shell: "{{shell}}"
+  become: true

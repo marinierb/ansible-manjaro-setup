@@ -1,0 +1,5 @@
+# Defaults for sshd
+service: sshd
+sshfiles:
+- authorized_keys
+- known_hosts

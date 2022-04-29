@@ -1,0 +1,4 @@
+# Defaults for cron
+service_name: cronie
+service_state: stopped
+service_enabled: false

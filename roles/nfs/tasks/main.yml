@@ -1,0 +1,25 @@
+# tasks file for nfs
+- name: install
+  ansible.builtin.package:
+    name: "{{item}}"
+    state: present
+  with_items: "{{packages}}"
+  become: true
+
+- name: configure service
+  ansible.builtin.systemd:
+    name:  "{{service}}"
+    state: "{{state}}"
+    enabled: "{{enabled}}"
+  become: true
+
+- name: Configuring exports
+  template:
+    src: _etc_exports
+    dest: /etc/exports
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  notify:
+    - reload nfs

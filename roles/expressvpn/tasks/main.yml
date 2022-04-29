@@ -1,0 +1,18 @@
+# tasks file for expressvpn
+- name: add install/update hook
+  ansible.builtin.copy:
+    src: custom-expressvpn-post.hook
+    dest: /usr/share/libalpm/hooks
+  become: true
+- name: expressvpn aur install
+  aur:
+    name: "{{item}}"
+    state: present
+  with_items: "{{aurPackages}}"
+- name: expressvpn service
+  ansible.builtin.systemd:
+    name:  "{{service}}"
+    state: started
+    enabled: yes
+  become: true
+  notify: vpn_info

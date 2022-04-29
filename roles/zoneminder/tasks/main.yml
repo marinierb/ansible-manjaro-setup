@@ -1,0 +1,13 @@
+# tasks file for zoneminder
+- name: add install/update hook
+  ansible.builtin.copy:
+    src: custom-zoneminder-post.hook
+    dest: /usr/share/libalpm/hooks
+  become: true
+
+- name: change ownership of storage dir
+  ansible.builtin.file:
+    path: "{{ zmDir }}"
+    owner: "{{ zmOwner }}"
+    group: "{{ zmGroup }}"
+  become: true

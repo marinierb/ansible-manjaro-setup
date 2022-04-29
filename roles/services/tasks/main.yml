@@ -1,0 +1,10 @@
+# tasks file for packages
+- name: configure service
+  ansible.builtin.systemd:
+    name:    "{{ item.name }}"
+    state:   "{{ item. state }}"
+    enabled: "{{ item. enabled }}"
+    masked:  "{{ item. masked }}"
+  with_items: "{{ services }}"
+  become: true
+  

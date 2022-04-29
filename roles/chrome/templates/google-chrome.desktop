@@ -1,0 +1,22 @@
+[Desktop Entry]
+Version=1.0
+Name=Chrome novpn
+StartupWMClass=Google-chrome
+Exec=sudo ip netns exec novpn su -c "PULSE_SERVER=/run/user/`id -u`/pulse/native PULSE_COOKIE={{userDir}}/.config/pulse/cookie google-chrome-stable --disk-cache-dir=/tmp/chrome/ %U" {{user}}
+StartupNotify=true
+Terminal=false
+Icon=google-chrome
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+StartupWMClass=Google-chrome
+Exec=sudo ip netns exec novpn su -c "PULSE_SERVER=/run/user/`id -u`/pulse/native PULSE_COOKIE={{userDir}}/.config/pulse/cookie google-chrome-stable --disk-cache-dir=/tmp/chrome/" {{user}}
+
+[Desktop Action new-private-window]
+Name=New Incognito Window
+StartupWMClass=Google-chrome
+Exec=sudo ip netns exec novpn su -c "PULSE_SERVER=/run/user/`id -u`/pulse/native PULSE_COOKIE={{userDir}}/.config/pulse/cookie google-chrome-stable --disk-cache-dir=/tmp/chrome/ --incognito" {{user}}

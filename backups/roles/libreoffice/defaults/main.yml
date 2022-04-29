@@ -1,0 +1,3 @@
+# defaults for libreoffice
+configDir: "{{userDir}}/.config/libreoffice/4/"
+backupDir: "backups/data/libreoffice{{skip_restore|default()}}"

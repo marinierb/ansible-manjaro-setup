@@ -1,0 +1,27 @@
+# tasks file for virtualbox
+- name: install ext pack installer script
+  ansible.builtin.template:
+    src: "{{hook.script}}"
+    dest: "{{hook.scriptDir}}"
+    mode: 0755
+  become: true
+
+- name: add install/update hook
+  ansible.builtin.copy:
+    src:  "{{hook.hook}}"
+    dest: "{{hook.hookDir}}"
+  become: true
+
+- name: install packages
+  ansible.builtin.package:
+    name: "{{item}}"
+    state: present
+  with_items: "{{packages}}"
+  become: true
+
+- name: add user to group
+  ansible.builtin.user:
+    name: "{{user}}"
+    groups: "{{group}}"
+    append: yes
+  become: true

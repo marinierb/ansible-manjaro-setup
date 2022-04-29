@@ -1,0 +1,21 @@
+# Defaults for packages
+packages_add:
+- nautilus-dropbox
+- keepassxc
+- encfs
+- xmlstarlet
+- perl-image-exiftool
+- hardinfo
+- smartmontools
+- stress
+- iotop
+- nvme-cli
+- systemd-ui
+- openshot
+- ventoy
+- lm_sensors
+packages_add_aur:
+packages_remove:
+- vim-runtime
+- mc
+- manjaro-hello

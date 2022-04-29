@@ -1,0 +1,4 @@
+# defaults for vscode
+configDir: "{{userDir}}/.config/'Code - OSS'/User"
+backupDir: "{{mainBackupDir}}/vscode{{skip_restore|default()}}"
+extList:   "extensions.yml"

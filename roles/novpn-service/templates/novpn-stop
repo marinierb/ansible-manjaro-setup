@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+# Called by novpn.service
+# Deletes the novpn namespace
+ip netns delete {{service.name}}
+rm -r /etc/netns/{{service.name}}

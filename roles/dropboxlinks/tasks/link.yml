@@ -1,0 +1,22 @@
+# tasks file for links
+- name: info
+  debug:
+    msg: "link: {{ item.dest }} --> {{ item.src }}"
+  
+- name: check status
+  stat:
+    path: "{{ item.dest }}"
+  register: dir
+
+- block:
+  - name: remove dir
+    file:
+      path: "{{ item.dest }}"
+      state: absent
+
+  - name: create link
+    ansible.builtin.file:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      state: link
+  when: dir.stat.isdir is defined and dir.stat.isdir

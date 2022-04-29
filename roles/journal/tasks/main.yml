@@ -1,0 +1,7 @@
+# tasks file for journal
+- name: set retention
+  ansible.builtin.replace:
+    path: "/etc/systemd/journald.conf"
+    regexp: '(^.*)(SystemMaxUse=)(.*)'
+    replace: 'SystemMaxUse={{ SystemMaxUse }}'
+  become: true

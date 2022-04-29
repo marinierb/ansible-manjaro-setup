@@ -1,0 +1,6 @@
+# defaults for libreoffice
+packages:
+- libreoffice-still
+- jre-openjdk-headless
+configDir: "{{userDir}}/.config/libreoffice/4"
+backupDir: "{{mainBackupDir}}/libreoffice/"

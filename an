@@ -1,0 +1,29 @@
+#!/bin/bash
+playbook=playbook-main.yml
+inventory=inventory.yml
+limit="--limit `uname -n`" # Limit to current host
+# Get secrets
+export password=$(secret-tool lookup main password)
+export vpnUsername=$(secret-tool lookup vpn username)
+export vpnPassword=$(secret-tool lookup vpn password)
+# Process command line args
+while [ "$1" != "" ]
+do
+  case "$1" in
+    "-t") action="--list-tasks";;
+    "-l") action="--list-hosts";;
+    "-c") action="--check";;
+    "-h") echo "usage: `basename $0` [option] [tags]"
+          echo "  options: -t list tasks"
+          echo "           -l list hosts"
+          echo "           -c check"
+          exit;;
+       *) tags="--tags $1";;
+  esac
+  shift
+done
+[[ "$action" == "--list-hosts" ]] && unset limit
+# Go!
+#ansible-playbook --inventory $inventory $limit $action --extra-vars "ansible_sudo_pass=$password" $tags
+#echo ansible-playbook $playbook $limit $action --extra-vars "ansible_sudo_pass=$password" $tags
+ansible-playbook $playbook $limit $action --extra-vars "ansible_sudo_pass=$password" $tags

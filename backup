@@ -1,0 +1,21 @@
+#!/bin/bash
+playbook=playbook-backups.yml
+limit="--limit `uname -n`" # Limit to current host
+# Get secrets
+export password=$(secret-tool lookup main password)
+# Process command line args
+while [ "$1" != "" ]
+do
+  case "$1" in
+    "-l") action="--list-tasks";;
+    "-h") action="--list-hosts";;
+    "-c") action="--check";;
+       *) tags="--tags $1";;
+  esac
+  shift
+done
+[[ "$action" == "--list-hosts" ]] && unset limit
+# Go!
+#ansible-playbook --inventory $inventory $limit $action --extra-vars "ansible_sudo_pass=$password" $tags
+#echo ansible-playbook $playbook $limit $action --extra-vars "ansible_sudo_pass=$password" $tags
+ansible-playbook $playbook $limit $action --extra-vars "ansible_sudo_pass=$password" $tags

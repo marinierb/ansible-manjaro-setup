@@ -1,0 +1,3 @@
+# defaults for firefox
+configDir: "{{userDir}}/.mozilla/firefox"
+backupDir: "backups/data/firefox{{skip_restore|default()}}"
