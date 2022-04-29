@@ -14,6 +14,11 @@
 
 There are some neat roles in here. Steal with pride!
 
+## Note
+
+I run expressvpn. Because it does not support split-tunneling, I created a service called **novpn** that creates a namespace outside of the VPN tunnel.
+Then I created some local desktop launchers for chrome and firefox to run the browsers in that namespace. This is useful for web sites that block access from VPNs.
+
 ## Steps to rebuild from scratch
 
 >**In a nutshell:**
