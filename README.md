@@ -14,10 +14,9 @@
 
 There are some neat roles in here. Steal with pride!
 
-## Note
+## Note about novpn
 
-I run expressvpn. Because it does not support split-tunneling, I created a service called **novpn** that creates a namespace outside of the VPN tunnel.
-Then I created some local desktop launchers for chrome and firefox to run the browsers in that namespace. This is useful for web sites that block access from VPNs.
+I run expressvpn. Because it does not support split-tunneling on Linux, I have a role called **novpn-service** that creates a service called **novpn**. This service automatically creates, at startup, a namespace outside of the VPN tunnel. I can then run applications in that namespace to bypass the VPN. And because some web sites block access from VPNs, the **chrome** and **firefox** roles create some local desktop launchers that allow me to lauch those browsers in that namespace. 
 
 ## Steps to rebuild from scratch
 
