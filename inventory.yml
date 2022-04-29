@@ -14,6 +14,7 @@ all:
     user:           "bruno"
     userDir:        "/home/{{user}}"
     dropboxDir:     "{{userDir}}/Dropbox/Linux"
+    localLauncherDir: "{{userDir}}/.local/share/applications"
     packages_add_additional:
     packages_remove_additional:
     packages_aur_add_additional:

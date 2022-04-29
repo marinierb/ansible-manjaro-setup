@@ -8,7 +8,7 @@
 - name: create local launcher file
   ansible.builtin.template:
     src: firefox.desktop
-    dest: "{{userDir}}/.local/share/applications"
+    dest: "{{localLauncherDir}}"
 - name: create config dir
   ansible.builtin.file:
     path: "{{configDir}}"
