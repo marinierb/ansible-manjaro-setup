@@ -113,8 +113,9 @@ To run a backup
         → Look for the appropriate tag in the backups playbook
         → Or don't specify a tag to back up everything
 
+Example:
 ```
-./backup [tag]
+./backup libreoffice
 ```
 
 The ***gnome*** backup, however, works differently. It extracts specific gnome settings and creates ansible tasks directly in the *gnome* role. These tasks are extensively tagged so that specific settings can be restored.
