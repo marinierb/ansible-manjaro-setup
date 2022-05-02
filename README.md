@@ -21,7 +21,7 @@ I run expressvpn. Because it does not support split-tunneling on Linux, I have a
 ## Steps to rebuild my desktop from scratch
 
 >**In a nutshell:**
-><br>My ansible folder is on Dropbox. So, get Manjaro up and running, install and sync Dropbox, then run ansible
+><br>My ansible folder is on Dropbox. So, get Manjaro up and running, install and sync Dropbox, then run ansible.
 
 1. Install the [GNOME edition of Manjaro](https://manjaro.org/download/#gnome)
 

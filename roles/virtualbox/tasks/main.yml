@@ -1,13 +1,13 @@
 # tasks file for virtualbox
 - name: install ext pack installer script
-  ansible.builtin.template:
+  ansible.builtin.copy:
     src: "{{hook.script}}"
     dest: "{{hook.scriptDir}}"
     mode: 0755
   become: true
 
 - name: add install/update hook
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src:  "{{hook.hook}}"
     dest: "{{hook.hookDir}}"
   become: true
