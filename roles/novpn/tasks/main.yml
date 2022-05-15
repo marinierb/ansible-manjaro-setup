@@ -21,6 +21,7 @@
     state: present
   become: true
 
+# CONFIGURE SERVICE
 - name: install service start/stop scripts
   ansible.builtin.template:
     src: "{{item}}"
@@ -45,6 +46,7 @@
     enabled: yes
   become: true
 
+# INSTALL APP LAUNCHERS
 - name: create local launchers
   ansible.builtin.template:
     src:  "{{item}}"
