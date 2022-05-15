@@ -4,7 +4,7 @@
 - name: add entry for novpn to sudoers
   ansible.builtin.lineinfile:
     path: "{{sudoers}}"
-    line: "{{user}} ALL=(ALL) NOPASSWD: /usr/bin/ip netns exec novpn *"
+    line: "{{sudoersLine}}"
     state: present
     create: yes
   become: true

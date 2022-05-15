@@ -8,6 +8,7 @@ service:
 vlan:          vlan0
 ip:           192.168.0.99/24
 gateway:      192.168.0.1
+sudoersLine:  "{{user}} ALL=(ALL) NOPASSWD: /usr/bin/ip netns exec novpn *"
 launchers:
 - google-chrome.desktop
 - firefox.desktop
