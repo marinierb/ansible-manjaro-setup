@@ -1,22 +1,10 @@
 # tasks file for sudoers
-- name: Check that {{user}} sudoers file exists
-  ansible.builtin.stat:
-    path: "{{sudoers}}"
-  become: true
-  register: stat_result
-
-- name: Create the file, if it does not exist already
-  ansible.builtin.file:
-    path:  "{{sudoers}}"
-    state: touch
-    mode:  0600
-  become: true
-  when: not stat_result.stat.exists
-
 - name: add entries to sudoers
   ansible.builtin.lineinfile:
     path: "{{sudoers}}"
     line: "{{item}}"
     state: present
+    mode:  0600
+    create: yes
   with_items: "{{lines}}"
   become: true
