@@ -1,0 +1,52 @@
+# tasks file for novpn
+# Creates a namespace outside of vpn
+
+# SET UP SUDOERS FILE
+- name: Check that {{user}} sudoers file exists
+  ansible.builtin.stat:
+    path: "{{sudoers}}"
+  become: true
+  register: stat_result
+- name: Create the file if necessary
+  ansible.builtin.file:
+    path:  "{{sudoers}}"
+    state: touch
+    mode:  0600
+  become: true
+  when: not stat_result.stat.exists
+- name: add entry for novpn to sudoers
+  ansible.builtin.lineinfile:
+    path: "{{sudoers}}"
+    line: "{{user}} ALL=(ALL) NOPASSWD: /usr/bin/ip netns exec novpn *"
+    state: present
+  become: true
+
+- name: install service start/stop scripts
+  ansible.builtin.template:
+    src: "{{item}}"
+    dest: "{{service.scriptsDir}}"
+    mode: 0755
+  with_items:
+  - "{{service.scriptStart}}"
+  - "{{service.scriptStop}}"
+  become: true
+
+- name: install service
+  ansible.builtin.template:
+    src: "{{service.name}}.service"
+    dest: "{{service.installDir}}"
+    mode: 0644
+  become: true
+  
+- name: enable and start
+  ansible.builtin.systemd:
+    name:  "{{service.name}}"
+    state: started
+    enabled: yes
+  become: true
+
+- name: create local launchers
+  ansible.builtin.template:
+    src:  "{{item}}"
+    dest: "{{localLauncherDir}}"
+  with_items: "{{launchers}}"

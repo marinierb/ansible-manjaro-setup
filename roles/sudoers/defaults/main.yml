@@ -1,0 +1,4 @@
+# default for sudoers
+lines:
+- "{{user}} ALL=(ALL) NOPASSWD: /usr/bin/encfs -u /home/{{user}}/.OtherMounted"
+- "{{user}} ALL=(ALL) NOPASSWD: /usr/bin/encfs -S --public /home/{{user}}/.Other /home/{{user}}/.OtherMounted"

@@ -24,7 +24,7 @@
   - { role: "transmission",     tags: "transmission"     }
   - { role: "printer",           tags: "printer"          }
   - { role: "scanner",           tags: "scanner"          }
-  - { role: "novpn-service",     tags: "novpn"            }
+  - { role: "novpn",             tags: "novpn"            }
   - { role: "ssh",               tags: "ssh"              }
   - { role: "nfs",               tags: "nfs"              }
   - { role: "smb",               tags: "smb"              }

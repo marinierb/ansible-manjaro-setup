@@ -5,6 +5,9 @@ service:
   scriptStart: novpn-start
   scriptStop:  novpn-stop
   scriptsDir:  /usr/bin
-vlan:        vlan0
-ip:          192.168.0.99/24
-gateway:     192.168.0.1
+vlan:          vlan0
+ip:           192.168.0.99/24
+gateway:      192.168.0.1
+launchers:
+- google-chrome.desktop
+- firefox.desktop

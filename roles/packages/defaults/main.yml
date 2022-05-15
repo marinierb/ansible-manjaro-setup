@@ -19,3 +19,6 @@ packages_remove:
 - vim-runtime
 - mc
 - manjaro-hello
+packages_add_additional:
+packages_remove_additional:
+packages_aur_add_additional:
