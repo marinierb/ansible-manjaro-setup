@@ -5,12 +5,7 @@
     path: "{{backupDir}}"
     state: directory
 
-- name: run the backup script
+- name: make the backups
   ansible.builtin.shell:
-    cmd: "{{backupScript}} {{backupDir}} {{skip_restore}} {{ansibleRolesDir}}"
-  register: out
-
-- name: log
-  copy:
-    content: "{{out.stdout}}"
-    dest:    "{{backupDir}}/log.txt"
+    cmd: "dconf dump {{item.path}} > {{backupDir}}/{{item.file}}"
+  with_items: "{{backups}}"

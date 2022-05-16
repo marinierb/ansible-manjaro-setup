@@ -14,9 +14,15 @@
 
 There are some neat roles in here. Steal with pride!
 
-## Note about novpn
+## Note about VPN split-tunneling
 
-I run expressvpn. Because it does not support split-tunneling on Linux, I have a role called **novpn-service** that creates a service called **novpn**. This service automatically creates, at startup, a namespace outside of the VPN tunnel. I can then run applications in that namespace to bypass the VPN. And because some web sites block access from VPNs, the **chrome** and **firefox** roles create some local desktop launchers that allow me to lauch those browsers in that namespace. 
+**expressvpn** does not support split-tunneling on Linux. So I have created a role called **novpn** that:
+- Creates a service called **novpn**<br>
+This service automatically creates, at startup, a network namespace outside of the VPN tunnel.<br>
+I can then run applications in that namespace to bypass the VPN.
+- Creates some local desktop launchers for **chrome** and **firefox**<br>
+These override the default launchers.<br>
+They allow me to launch those browsers inside that namespace (outside of the VPN).
 
 ## Steps to rebuild my desktop from scratch
 
@@ -117,8 +123,6 @@ Example:
 ```
 ./backup libreoffice
 ```
-
-The ***gnome*** backup, however, works differently. It extracts specific gnome settings and creates ansible tasks directly in the *gnome* role. These tasks are extensively tagged so that specific settings can be restored.
 
 ## Notes
 - To install public key on a remote host

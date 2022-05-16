@@ -1,5 +1,5 @@
-# defaults for gnome backup
-backupDir: "backups/data/gnome{{skip_restore|default()}}"
+# defaults for gnome
+backupDir: "backups/data/gnome"
 backups:
 - { path: "/org/gnome/desktop/input-sources/",        file: "desktop-input-sources" }
 - { path: "/org/gnome/desktop/interface/",            file: "desktop-interface" }
