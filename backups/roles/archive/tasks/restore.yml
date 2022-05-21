@@ -3,16 +3,16 @@
 - name: look for archive
   ansible.builtin.stat:
     path: "{{restore}}"
-  register: st
+  register: arc
 
 - name: ensure config dir exists
   file:
     path: "{{configDir}}"
     state: directory
-  when: st.stat.exists
+  when: arc.stat.exists
 
 - name: recover config
   ansible.builtin.unarchive:
     src:  "{{restore}}"
     dest: "{{configDir}}/"
-  when: st.stat.isdir is defined
+  when: arc.stat.exists
