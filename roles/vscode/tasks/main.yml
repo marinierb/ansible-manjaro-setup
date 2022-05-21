@@ -6,27 +6,34 @@
   with_items: "{{packages}}"
   become: true
 
-- name: look for backup
+- name: load backup vars
+  include_vars: "{{mainBackupDir}}/roles/vscode/defaults/main.yml"
+- name: attempt to recover config
+  include_role:
+    name: "{{mainBackupDir}}/roles/archive"
+    tasks_from: restore
+
+- name: look for extension list
   ansible.builtin.stat:
-    path: "{{backupDir}}"
+    path: "{{extList}}"
   register: st
   
 - block:
-  - name: recover config files
-    ansible.builtin.synchronize:
-      src: "{{backupDir}}/User"
-      dest: "{{configDir}}"
   - name: Load extensions list from backup
     ansible.builtin.include_vars:
-      file: "{{backupDir}}/extensions.yml"
+      file: "{{extList}}"
   - name: install extensions
     ansible.builtin.command: "code --install-extension {{item}}"
     register: result
     changed_when: '"successfully installed" in result.stdout'
     with_items: "{{extensions}}"
-  when: st.stat.isdir is defined
+  - name: remove extention list
+    ansible.builtin.file:
+      path: "{{extList}}"
+      state: absent
+  when: st.stat.exists
 
-- name: create local launcher file
+- name: create local launcher file (specifies the workspace)
   ansible.builtin.template:
     src: code-oss.desktop
     dest: "{{localLauncherDir}}"

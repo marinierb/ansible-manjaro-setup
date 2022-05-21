@@ -1,5 +1,3 @@
 # Defaults for transmission
 packages:
 - transmission-gtk
-configDir: "{{userDir}}/.config/transmission"
-backupDir: "{{mainBackupDir}}/transmission"

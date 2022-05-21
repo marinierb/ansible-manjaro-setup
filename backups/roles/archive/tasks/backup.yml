@@ -1,0 +1,8 @@
+# tasks file for generic backup
+
+- name: create the archive
+  ansible.builtin.archive:
+    path:               "{{archiveItems}}"
+    exclusion_patterns: "{{archiveSkipItems}}"
+    dest:               "{{backup}}"
+    format:             "{{format}}"

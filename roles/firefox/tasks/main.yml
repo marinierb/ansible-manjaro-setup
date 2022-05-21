@@ -5,16 +5,11 @@
     state: present
   with_items: "{{ packages }}"
   become: true
-- name: create config dir
-  ansible.builtin.file:
-    path: "{{configDir}}"
-    state: directory
-- name: look for config backup
-  ansible.builtin.stat:
-    path: "{{backupDir}}"
-  register: st
-- name: recover config
-  ansible.builtin.synchronize:
-    src: "{{backupDir}}"
-    dest: "{{configDir}}"
-  when: st.stat.isdir is defined
+
+- name: load backup vars
+  include_vars: "{{mainBackupDir}}/roles/firefox/defaults/main.yml"
+- name: attempt to recover config
+  include_role:
+    name: "{{mainBackupDir}}/roles/archive"
+    tasks_from: restore
+

@@ -1,24 +1,6 @@
 # tasks file for firefox backup
 
-# rsync -av --delete \
-#   ~/.mozilla/firefox/profiles.ini \
-#   ~/.mozilla/firefox/*.default-release \
-#   --exclude='*.lck' \
-#   $mainBackupDir/firefox$skipRestore
-
-- name: get name of profile
-  ansible.builtin.shell: "echo {{configDir}}/*.default-release"
-  register: dir
-  changed_when: false
-
-- name: backup profile.ini
-  ansible.builtin.synchronize:
-    src:  "{{configDir}}/profiles.ini"
-    dest: "{{backupDir}}/"
-
-- name: sync backup
-  ansible.builtin.synchronize:
-    src:  "{{dir.stdout}}"
-    dest: "{{backupDir}}"
-    delete: yes
-  when: dir.stdout != ""
+- name: create the archive
+  include_role:
+    name: "{{mainBackupDir}}/roles/archive"
+    tasks_from: backup

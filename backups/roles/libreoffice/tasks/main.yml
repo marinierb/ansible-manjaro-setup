@@ -1,9 +1,6 @@
 # tasks file for libreoffice backup
 
-# rsync -av --delete ~/.config/libreoffice/4/ $mainBackupDir/libreoffice$skipRestore
-
-- name: sync backup
-  ansible.builtin.synchronize:
-    src:  "{{configDir}}"
-    dest: "{{backupDir}}"
-    delete: yes
+- name: create the archive
+  include_role:
+    name: "{{mainBackupDir}}/roles/archive"
+    tasks_from: backup

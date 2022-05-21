@@ -1,0 +1,10 @@
+# tasks file for gnome load
+
+- name: look for file
+  ansible.builtin.stat:
+    path: "{{tempDir}}/{{item.file}}"
+  register: st  
+- name: load the file
+  ansible.builtin.shell:
+    cmd: "dconf load {{item.path}} < {{tempDir}}/{{item.file}}"
+  when: st.stat.exists

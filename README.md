@@ -105,24 +105,39 @@ usage: an [option] [tags]
 
 ## About backups
 
-Some roles will attempt to recover data and configurations from backups. These roles look for corresponding backup directories and restore from them.
+Some roles look for corresponding backups and restore them. The backups are created using ansible via the ***backup*** script and a series of roles in the ***backups*** directory.
 
 > **NOTE**
-> <br>To avoid restoring backups unless absolutely necessary, a string can be appended to the backup directory names to hide them from the restore tasks.
-> <br>In ***inventory.xml***, set the variable *skipRestore* to any string i.e. ".skiprestore". That string will be appended to each backup directory name by the backup tasks.
-> <br>Manually remove this string from the backup directory name if a restore is in fact desired.
+> <br>To avoid restoring backups unless absolutely necessary, a string can be appended to the backup names to hide them from the restore tasks.
+> <br>In ***inventory.xml***, set the variable *skipRestore* to any string i.e. ".skiprestore". That string will be appended to each backup name by the backup tasks.
+> <br>Manually remove this string from the backup's name if a restore is in fact desired.
 
-The backups are created using ansible via the ***backup*** script and a series of roles and data directories in the ***backups*** directory.
-
-To run a backup
+### To run a backup
 
         → Look for the appropriate tag in the backups playbook
+        → Run the backup script with that tag
         → Or don't specify a tag to back up everything
 
 Example:
 ```
 ./backup libreoffice
 ```
+
+### To restore a configuration from a backup
+
+        → Look for the appropriate tag in the main playbook
+        → Remove any "skip" string appended to the name of the backup
+        → Run the ansible script with that tag
+
+Example:
+```
+mv backups/libreoffice.zip.skiprestore backups/libreoffice.zip
+./an libreoffice
+```
+### For a full run of the ansible build
+
+        → Remove any "skip" string from all of the backups
+        → Run the ansible script
 
 ## Notes
 - To install public key on a remote host

@@ -1,3 +1,2 @@
-backups/data/*
-!backups/data/.gitkeep
+backups/*.*
 xOld

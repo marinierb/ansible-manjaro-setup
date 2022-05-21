@@ -1,11 +1,21 @@
 # tasks file for gnome backup
 
-- name: create backup dir
+- name: create temp dir
   ansible.builtin.file:
-    path: "{{backupDir}}"
+    path: "{{tempDir}}"
     state: directory
 
-- name: make the backups
+- name: make the files
   ansible.builtin.shell:
-    cmd: "dconf dump {{item.path}} > {{backupDir}}/{{item.file}}"
-  with_items: "{{backups}}"
+    cmd: "dconf dump {{item.path}} > {{tempDir}}/{{item.file}}"
+  with_items: "{{files}}"
+
+- name: create the archive
+  include_role:
+    name: "{{mainBackupDir}}/roles/archive"
+    tasks_from: backup
+
+- name: remove temp dir
+  ansible.builtin.file:
+    path: "{{tempDir}}"
+    state: absent

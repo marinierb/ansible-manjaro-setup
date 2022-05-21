@@ -1,6 +1,7 @@
 # defaults for gnome backup
-backupDir: "backups/data/gnome{{skip_restore|default()}}"
-backups:
+
+tempDir: "/tmp/gnome-backup"
+files:
 - { path: "/org/gnome/desktop/input-sources/",        file: "desktop-input-sources" }
 - { path: "/org/gnome/desktop/interface/",            file: "desktop-interface" }
 - { path: "/org/gnome/desktop/peripherals/keyboard/", file: "desktop-keyboard" }
@@ -11,3 +12,11 @@ backups:
 - { path: "/org/gnome/nautilus/",                     file: "nautilus" }
 - { path: "/org/gnome/shell/extensions/",             file: "shell-extensions" }
 - { path: "/org/gnome/terminal/legacy/",              file: "terminal-legacy" }
+
+configDir: "{{tempDir}}"
+format:    zip
+backup:    "{{mainBackupDir}}/gnome.{{format}}{{skip_restore|default()}}"
+restore:   "{{mainBackupDir}}/gnome.{{format}}"
+archiveItems:
+- "{{tempDir}}/*"
+archiveSkipItems:

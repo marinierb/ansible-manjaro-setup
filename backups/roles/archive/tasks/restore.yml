@@ -1,0 +1,18 @@
+# tasks file for generic restore
+
+- name: look for archive
+  ansible.builtin.stat:
+    path: "{{restore}}"
+  register: st
+
+- name: ensure config dir exists
+  file:
+    path: "{{configDir}}"
+    state: directory
+  when: st.stat.exists
+
+- name: recover config
+  ansible.builtin.unarchive:
+    src:  "{{restore}}"
+    dest: "{{configDir}}/"
+  when: st.stat.isdir is defined

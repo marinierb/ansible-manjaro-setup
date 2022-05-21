@@ -1,5 +1,5 @@
 # defaults for firefox
 packages:
 - firefox
-configDir: "{{userDir}}/.mozilla/firefox"
-backupDir: "{{mainBackupDir}}/firefox/"
+
+

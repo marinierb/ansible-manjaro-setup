@@ -1,4 +1,11 @@
 # defaults for vscode
-configDir: "{{userDir}}/.config/'Code - OSS'/User"
-backupDir: "{{mainBackupDir}}/vscode{{skip_restore|default()}}"
-extList:   "extensions.yml"
+configDir: "{{userDir}}/.config/Code - OSS/User"
+extList:   "{{userDir}}/.config/Code - OSS/extensions.yml"
+format:    zip
+backup:    "{{mainBackupDir}}/vscode.{{format}}{{skip_restore|default()}}"
+restore:   "{{mainBackupDir}}/vscode.{{format}}"
+archiveItems:
+- "{{configDir}}"
+- "{{extList}}"
+archiveSkipItems:
+- "*Storage"
