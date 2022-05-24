@@ -5,14 +5,15 @@
     path: "{{restore}}"
   register: arc
 
-- name: ensure config dir exists
-  file:
-    path: "{{configDir}}"
-    state: directory
-  when: arc.stat.exists
+- name: recover archive if found
+  block:
+  - name: ensure config dir exists
+    file:
+      path: "{{configDir}}"
+      state: directory
 
-- name: recover config
-  ansible.builtin.unarchive:
-    src:  "{{restore}}"
-    dest: "{{configDir}}/"
+  - name: recover config
+    ansible.builtin.unarchive:
+      src:  "{{restore}}"
+      dest: "{{configDir}}/"
   when: arc.stat.exists
