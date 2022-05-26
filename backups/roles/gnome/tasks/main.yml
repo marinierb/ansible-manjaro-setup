@@ -13,7 +13,7 @@
 - name: create the archive
   include_role:
     name: "{{mainBackupDir}}/roles/archive"
-    tasks_from: backup
+    tasks_from: create
 
 - name: remove temp dir
   ansible.builtin.file:
