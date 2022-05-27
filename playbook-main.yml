@@ -17,7 +17,6 @@
   - { role: "gnome",            tags: "gnome"            }
 #  - { role: "docker",           tags: "docker"           }
   - { role: "vscode",           tags: "vscode"           }
-  - { role: "grub",             tags: "grub"             }
   - { role: "powermgt",         tags: "powermgt"         }
   - { role: "services",         tags: "services"         }
   - { role: "chrome",           tags: "chrome"           }
