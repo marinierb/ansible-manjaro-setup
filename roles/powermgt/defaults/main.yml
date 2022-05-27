@@ -1,0 +1,6 @@
+# defaults for powermgt
+suspend_hibernate_targets:
+- sleep.target
+- suspend.target
+- hibernate.target
+- hybrid-sleep.target

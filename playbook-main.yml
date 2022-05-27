@@ -18,14 +18,15 @@
 #  - { role: "docker",           tags: "docker"           }
   - { role: "vscode",           tags: "vscode"           }
   - { role: "grub",             tags: "grub"             }
+  - { role: "powermgt",         tags: "powermgt"         }
   - { role: "services",         tags: "services"         }
   - { role: "chrome",           tags: "chrome"           }
   - { role: "firefox",          tags: "firefox"          }
   - { role: "transmission",     tags: "transmission"     }
-  - { role: "printer",           tags: "printer"          }
-  - { role: "scanner",           tags: "scanner"          }
-  - { role: "novpn",             tags: "novpn"            }
-  - { role: "ssh",               tags: "ssh"              }
-  - { role: "nfs",               tags: "nfs"              }
-  - { role: "smb",               tags: "smb"              }
-  - { role: "zoneminder",        tags: "zoneminder"       }
+  - { role: "printer",           tags: "printer"         }
+  - { role: "scanner",           tags: "scanner"         }
+  - { role: "novpn",             tags: "novpn"           }
+  - { role: "ssh",               tags: "ssh"             }
+  - { role: "nfs",               tags: "nfs"             }
+  - { role: "smb",               tags: "smb"             }
+  - { role: "zoneminder",        tags: "zoneminder"      }
