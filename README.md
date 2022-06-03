@@ -105,7 +105,7 @@ usage: an [option] [tags]
 
 ## About backups
 
-Some roles look for corresponding backups and restore them. The backups are created using ansible via the ***backup*** script and a series of roles in the ***backups*** directory.
+Some roles look for corresponding backups and restore them. The backups are created using ansible via the ***backup*** scripts.
 
 > **NOTE**
 > <br>To avoid restoring backups unless absolutely necessary, a string can be appended to the backup names to hide them from the restore tasks.
