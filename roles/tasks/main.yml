@@ -1,6 +1,0 @@
-# tasks file for firefox backup
-
-- name: create the archive
-  include_role:
-    name: "{{mainBackupDir}}/roles/archive"
-    tasks_from: create
