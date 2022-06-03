@@ -1,4 +1,7 @@
 # tasks file for libreoffice
+- name: load settings
+  include_vars: settings/libreoffice.yml
+
 - name: install with dependencies
   ansible.builtin.package:
     name: "{{item}}"

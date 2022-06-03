@@ -1,4 +1,7 @@
 # tasks file for userdirs
+- name: load settings
+  include_vars: settings/userdirs.yml
+
 - name: set user dirs
   include_tasks: set.yml
   with_items: "{{userDirs}}"

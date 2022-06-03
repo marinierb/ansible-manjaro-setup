@@ -1,4 +1,7 @@
 # tasks file for novpn
+- name: load settings
+  include_vars: settings/novpn.yml
+
 # Creates a namespace outside of vpn
 
 - name: add entry for novpn to sudoers

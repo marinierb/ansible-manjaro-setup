@@ -1,4 +1,7 @@
 # tasks file for chrome
+- name: load settings
+  include_vars: settings/chrome.yml
+
 - name: install
   aur:
     name: "{{item}}"

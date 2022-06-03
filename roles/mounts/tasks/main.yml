@@ -1,4 +1,7 @@
 # tasks file for mount
+- name: load settings
+  include_vars: settings/mounts.yml
+
 - name: fstab and mount
   ansible.builtin.mount:
     path:   "{{item.path}}"

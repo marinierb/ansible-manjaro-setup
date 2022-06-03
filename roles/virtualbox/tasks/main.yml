@@ -1,4 +1,7 @@
 # tasks file for virtualbox
+- name: load settings
+  include_vars: settings/virtualbox.yml
+
 - name: install ext pack installer script
   ansible.builtin.copy:
     src: "{{hook.script}}"

@@ -1,4 +1,7 @@
 # tasks file for cron
+- name: load settings
+  include_vars: settings/cron.yml
+
 - name: configure service
   ansible.builtin.service:
     name: "{{service_name}}"

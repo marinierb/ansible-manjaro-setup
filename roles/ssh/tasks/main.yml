@@ -1,4 +1,7 @@
 # tasks file for sshd
+- name: load settings
+  include_vars: settings/ssh.yml
+
 - name: install .ssh files
   ansible.builtin.copy:
     src: "{{item}}"

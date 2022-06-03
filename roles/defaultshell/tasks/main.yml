@@ -1,4 +1,7 @@
 # tasks file for defaultshell
+- name: load settings
+  include_vars: settings/defaultshell.yml
+
 - name: set default shell
   ansible.builtin.user:
     name: "{{user}}"

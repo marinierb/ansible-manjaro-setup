@@ -1,4 +1,7 @@
 # tasks file for expressvpn
+- name: load settings
+  include_vars: settings/expressvpn.yml
+
 - name: add install/update hook
   ansible.builtin.copy:
     src: custom-expressvpn-post.hook

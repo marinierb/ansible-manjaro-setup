@@ -1,4 +1,7 @@
 # tasks file for packages
+- name: load settings
+  include_vars: settings/services.yml
+
 - name: configure service
   ansible.builtin.systemd:
     name:    "{{ item.name }}"

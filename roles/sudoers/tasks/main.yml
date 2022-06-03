@@ -1,4 +1,7 @@
 # tasks file for sudoers
+- name: load settings
+  include_vars: settings/sudoers.yml
+
 - name: add entries to sudoers
   ansible.builtin.lineinfile:
     path: "{{sudoers}}"

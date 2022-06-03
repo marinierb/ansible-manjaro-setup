@@ -1,4 +1,7 @@
 # tasks file for smb
+- name: load settings
+  include_vars: settings/smb.yml
+
 - name: install
   ansible.builtin.package:
     name: "{{item}}"

@@ -1,4 +1,7 @@
 # tasks file for vscode
+- name: load settings
+  include_vars: settings/vscode.yml
+
 - name: install with dependencies
   ansible.builtin.package:
     name: "{{item}}"

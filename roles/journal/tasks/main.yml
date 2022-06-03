@@ -1,4 +1,7 @@
 # tasks file for journal
+- name: load settings
+  include_vars: settings/journal.yml
+
 - name: set retention
   ansible.builtin.replace:
     path: "/etc/systemd/journald.conf"

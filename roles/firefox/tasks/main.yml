@@ -1,4 +1,10 @@
 # tasks file for firefox
+- name: load settings
+  include_vars: settings/firefox.yml
+
+- name: load settings
+  include_vars: settings/firefox.yml
+
 - name: install
   ansible.builtin.package:
     name: "{{item}}"

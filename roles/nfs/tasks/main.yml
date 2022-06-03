@@ -1,4 +1,7 @@
 # tasks file for nfs
+- name: load settings
+  include_vars: settings/nfs.yml
+
 - name: install
   ansible.builtin.package:
     name: "{{item}}"

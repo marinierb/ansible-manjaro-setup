@@ -1,4 +1,7 @@
 # tasks file for timesync
+- name: load settings
+  include_vars: settings/timesync.yml
+
 - name: check if enabled
   ansible.builtin.shell: timedatectl | grep -q 'NTP service. active'
   register: time_sync_enabled
