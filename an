@@ -1,6 +1,6 @@
 #!/bin/bash
+inventory="-i inventory.yml"
 playbook=playbook-main.yml
-inventory=inventory.yml
 limit="--limit `uname -n`" # Limit to current host
 # Get secrets
 export password=$(secret-tool lookup main password)
@@ -26,4 +26,4 @@ done
 # Go!
 #ansible-playbook --inventory $inventory $limit $action --extra-vars "ansible_sudo_pass=$password" $tags
 #echo ansible-playbook $playbook $limit $action --extra-vars "ansible_sudo_pass=$password" $tags
-ansible-playbook $playbook $limit $action --extra-vars "ansible_sudo_pass=$password" $tags
+ansible-playbook $playbook $inventory $limit $action --extra-vars "ansible_sudo_pass=$password" $tags
