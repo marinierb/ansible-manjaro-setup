@@ -1,3 +1,13 @@
 # Defaults for transmission
 packages:
 - transmission-gtk
+
+# backups
+configDir: "{{userDir}}/.config/transmission"
+configFile: "{{userDir}}/.config/transmission/settings.json"
+format:    zip
+backup:    "{{mainBackupDir}}/transmission.{{format}}{{skip_restore|default()}}"
+restore:   "{{mainBackupDir}}/transmission.{{format}}"
+archiveItems:
+- "{{configDir}}/settings.json"
+archiveSkipItems:

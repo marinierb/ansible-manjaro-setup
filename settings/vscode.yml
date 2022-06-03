@@ -1,6 +1,16 @@
 # Defaults for vscode
 packages:
 - code
-backupDir: "{{mainBackupDir}}/vscode"
-configDir: "{{userDir}}/.config/Code - OSS"
 workspace: "{{dropboxDir}}/bruno.code-workspace"
+
+# backups
+configDir: "{{userDir}}/.config/Code - OSS/"
+extList:   "{{userDir}}/.config/Code - OSS/extensions.yml"
+format:    zip
+backup:    "{{mainBackupDir}}/vscode.{{format}}{{skip_restore|default()}}"
+restore:   "{{mainBackupDir}}/vscode.{{format}}"
+archiveItems:
+- "{{configDir}}/User"
+- "{{extList}}"
+archiveSkipItems:
+- "*Storage"

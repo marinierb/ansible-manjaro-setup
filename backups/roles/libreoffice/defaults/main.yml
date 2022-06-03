@@ -1,8 +1,0 @@
-# defaults for libreoffice
-configDir: "{{userDir}}/.config/libreoffice/4/"
-format:    zip
-backup:    "{{mainBackupDir}}/libreoffice.{{format}}{{skip_restore|default()}}"
-restore:   "{{mainBackupDir}}/libreoffice.{{format}}"
-archiveItems:
-- "{{configDir}}"
-archiveSkipItems:

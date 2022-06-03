@@ -1,4 +1,6 @@
 # tasks file for gnome backup
+- name: load settings
+  include_vars: settings/gnome.yml
 
 - name: create temp dir
   ansible.builtin.file:
@@ -12,7 +14,7 @@
 
 - name: create the archive
   include_role:
-    name: "{{mainBackupDir}}/roles/archive"
+    name:       archive
     tasks_from: create
 
 - name: remove temp dir

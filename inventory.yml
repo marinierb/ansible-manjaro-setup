@@ -17,5 +17,4 @@ all:
     localLauncherDir: "{{userDir}}/.local/share/applications"
     sudoers:          "/etc/sudoers.d/{{user}}"
     mainBackupDir:    "{{dropboxDir}}/ansible/backups"
-    rolesDir:         "{{dropboxDir}}/ansible/roles"
     skip_restore:     ".skiprestore"

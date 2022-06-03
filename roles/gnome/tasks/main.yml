@@ -2,12 +2,9 @@
 - name: load settings
   include_vars: settings/gnome.yml
 
-
-- name: load backup vars
-  include_vars: "{{mainBackupDir}}/roles/gnome/defaults/main.yml"
 - name: attempt to recover config
   include_role:
-    name: "{{mainBackupDir}}/roles/archive"
+    name:       archive
     tasks_from: restore
 
 - name: load settings

@@ -1,0 +1,8 @@
+# tasks file for firefox backup
+- name: load settings
+  include_vars: settings/firefox.yml
+
+- name: create the archive
+  include_role:
+    name:       archive
+    tasks_from: create

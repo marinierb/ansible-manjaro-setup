@@ -1,8 +1,8 @@
 # playbook for backups
 - hosts: bruno-desktop
   roles:
-  - { role: "backups/roles/firefox",      tags: "firefox"      }
-  - { role: "backups/roles/libreoffice",  tags: "libreoffice"  }
-  - { role: "backups/roles/transmission", tags: "transmission" }
-  - { role: "backups/roles/gnome",        tags: "gnome"        }
-  - { role: "backups/roles/vscode",       tags: "vscode"       }
+  - { role: "firefox-backup",      tags: "firefox"      }
+  - { role: "libreoffice-backup",  tags: "libreoffice"  }
+  - { role: "transmission-backup", tags: "transmission" }
+  - { role: "gnome-backup",        tags: "gnome"        }
+  - { role: "vscode-backup",       tags: "vscode"       }

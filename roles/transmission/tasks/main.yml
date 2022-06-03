@@ -9,9 +9,7 @@
   with_items: "{{packages}}"
   become: true
 
-- name: load backup vars
-  include_vars: "{{mainBackupDir}}/roles/transmission/defaults/main.yml"
 - name: attempt to recover config
   include_role:
-    name: "{{mainBackupDir}}/roles/archive"
+    name:       archive
     tasks_from: restore

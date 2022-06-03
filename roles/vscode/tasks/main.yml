@@ -9,11 +9,9 @@
   with_items: "{{packages}}"
   become: true
 
-- name: load backup vars
-  include_vars: "{{mainBackupDir}}/roles/vscode/defaults/main.yml"
 - name: attempt to recover config
   include_role:
-    name: "{{mainBackupDir}}/roles/archive"
+    name:       archive
     tasks_from: restore
 
 - name: look for extension list

@@ -1,6 +1,8 @@
 # tasks file for libreoffice backup
+- name: load settings
+  include_vars: settings/libreoffice.yml
 
 - name: create the archive
   include_role:
-    name: "{{mainBackupDir}}/roles/archive"
+    name:       archive
     tasks_from: create

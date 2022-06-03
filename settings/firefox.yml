@@ -2,4 +2,13 @@
 packages:
 - firefox
 
-
+# backups
+configDir: "{{userDir}}/.mozilla/firefox"
+format:    zip
+backup:    "{{mainBackupDir}}/firefox.{{format}}{{skip_restore|default()}}"
+restore:   "{{mainBackupDir}}/firefox.{{format}}"
+archiveItems:
+- "{{configDir}}/profiles.ini"
+- "{{configDir}}/*.default-release"
+archiveSkipItems:
+- "*/lock"
