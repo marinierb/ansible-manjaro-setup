@@ -5,6 +5,6 @@
 - name: source dotbashrc in .bashrc
   ansible.builtin.lineinfile:
     path: "{{userDir}}/.bashrc"
-    line: ". {{dropboxLinuxDir}}/Scripts/dotbashrc"
+    line: ". {{userDir}}/Scripts/dotbashrc"
     insertbefore: EOF
     state: present
