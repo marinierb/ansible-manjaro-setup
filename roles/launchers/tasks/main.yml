@@ -1,0 +1,12 @@
+# tasks file for launchers
+
+- name: copy icons
+  ansible.builtin.copy:
+    src: "{{item}}"
+    dest: "{{localLauncherDir}}"
+  with_fileglob: "files/*"
+- name: create local launcher files
+  ansible.builtin.template:
+    src: "{{item}}"
+    dest: "{{localLauncherDir}}"
+  with_fileglob: "templates/*"

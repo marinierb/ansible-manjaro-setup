@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Manjaro
+Comment=Starts the VirtualBox machine Manjaro
+Type=Application
+Exec=/usr/lib/virtualbox/VirtualBoxVM --comment "Manjaro" --startvm "{f2d0f693-26c6-4206-980a-5584a52be0c6}"
+Icon={{localLauncherDir}}/manjaro.png

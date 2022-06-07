@@ -1,0 +1,20 @@
+[Desktop Entry]
+Version=1.0
+Name=ZoneMinder
+Type=Application
+Exec=epiphany http://localhost:8095
+Icon={{localLauncherDir}}/zoneminder.png
+
+Actions=zmDoc;zmGithub;esDoc;incognito
+
+[Desktop Action zmDoc]
+Name=zm documentation
+Exec=xdg-open https://zoneminder.readthedocs.io/en/stable/userguide/index.html
+
+[Desktop Action zmGithub]
+Name=zm on github
+Exec=xdg-open https://github.com/ZoneMinder/zoneminder
+
+[Desktop Action esDoc]
+Name=es documentation
+Exec=xdg-open https://zmeventnotification.readthedocs.io/en/latest/index.html

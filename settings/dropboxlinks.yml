@@ -1,6 +1,5 @@
 # Defaults for dropboxlinks
 dropboxLinks:
-- { src: "{{dropboxDir}}/Scripts",              dest: "{{userDir}}/Scripts" }
-- { src: "{{dropboxDir}}/Launchers",            dest: "{{localLauncherDir}}" }
-- { src: "{{dropboxDir}}/NautilusScripts",      dest: "{{userDir}}/.local/share/nautilus/scripts" }
-- { src: "{{dropboxDir}}/GnomeShellExtensions", dest: "{{userDir}}/.local/share/gnome-shell/extensions" }
+- { src: "{{dropboxLinuxDir}}/Scripts",              dest: "{{userDir}}/Scripts" }
+- { src: "{{dropboxLinuxDir}}/NautilusScripts",      dest: "{{userDir}}/.local/share/nautilus/scripts" }
+- { src: "{{dropboxLinuxDir}}/GnomeShellExtensions", dest: "{{userDir}}/.local/share/gnome-shell/extensions" }
