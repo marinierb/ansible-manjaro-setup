@@ -1,7 +1,7 @@
 # Defaults for vscode
 packages:
 - code
-workspace: "{{dropboxLinuxDir}}/bruno.code-workspace"
+workspace: "{{dropboxDir}}/bruno.code-workspace"
 
 # backups
 configDir: "{{userDir}}/.config/Code - OSS/"

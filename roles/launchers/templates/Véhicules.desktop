@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Véhicules
-Type=Application
-Exec=libreoffice -o {{dropboxDir}}/Véhicules.xlsx
-Icon={{localLauncherDir}}/Véhicules.png
-StartupWMClass=Véhicules
-Terminal=false

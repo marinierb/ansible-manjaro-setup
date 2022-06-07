@@ -1,6 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Tangerine
-Type=Application
-Exec=xdg-open https://www.tangerine.ca/app/#/
-Icon={{localLauncherDir}}/Tangerine.png

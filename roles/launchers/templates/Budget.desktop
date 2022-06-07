@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Budget
-Exec=libreoffice -o {{dropboxDir}}/Finances.xlsx
-Icon={{localLauncherDir}}/Budget.png
-Terminal=false

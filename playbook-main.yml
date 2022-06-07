@@ -9,7 +9,6 @@
   - { role: "journal",          tags: "journal"          }
   - { role: "timesync",         tags: "timesync"         }
   - { role: "dropboxlinks",     tags: "dropboxlinks"     }
-  - { role: "launchers",        tags: "launchers"        }
   - { role: "bash",             tags: "bash"             }
   - { role: "userdirs",         tags: "userdirs"         }
   - { role: "libreoffice",      tags: "libreoffice"      }
