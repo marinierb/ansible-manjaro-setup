@@ -1,0 +1,6 @@
+# Defaults for cloudlinks
+cloudLinks:
+- { src: "{{cloudLinuxDir}}/Scripts",              dest: "{{userDir}}/Scripts" }
+- { src: "{{cloudLinuxDir}}/Launchers",            dest: "{{localLauncherDir}}" }
+- { src: "{{cloudLinuxDir}}/NautilusScripts",      dest: "{{userDir}}/.local/share/nautilus/scripts" }
+- { src: "{{cloudLinuxDir}}/GnomeShellExtensions", dest: "{{userDir}}/.local/share/gnome-shell/extensions" }

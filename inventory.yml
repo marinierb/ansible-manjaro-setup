@@ -13,8 +13,9 @@ all:
     ansible_python_interpreter: /usr/bin/python
     user:             "bruno"
     userDir:          "/home/{{user}}"
-    dropboxDir:       "{{userDir}}/Dropbox/Linux"
+    cloudDir:         "{{userDir}}/Dropbox"
+    cloudLinuxDir:    "{{cloudDir}}/Linux"
     localLauncherDir: "{{userDir}}/.local/share/applications"
     sudoers:          "/etc/sudoers.d/{{user}}"
-    mainBackupDir:    "{{dropboxDir}}/ansible/backups"
+    mainBackupDir:    "{{cloudLinuxDir}}/ansible/backups"
     skip_restore:     ".skiprestore"

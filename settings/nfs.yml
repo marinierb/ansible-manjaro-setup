@@ -28,11 +28,11 @@ mediaOpts: "(ro,all_squash,insecure,no_subtree_check)"
 encfsShare: "{{userDir}}/.OtherMounted"
 encfsOpts:  "(fsid=2,ro,all_squash,insecure,no_subtree_check,anongid=1000)"
 
-kodiBackupBas: "{{userDir}}/Dropbox/Backups/KodiBas"
+kodiBackupBas: "{{cloudDir}}/Backups/KodiBas"
 kodiBackupBasClients:
 - "{{eboxBas}}"
 - "{{phone}}"
-kodiBackupHaut:   "{{userDir}}/Dropbox/Backups/KodiHaut"
+kodiBackupHaut:   "{{cloudDir}}/Backups/KodiHaut"
 kodiBackupHautClients:
 - "{{eboxHaut}}"
 - "{{phone}}"

@@ -1,10 +1,10 @@
-# tasks file for dropboxlinks
+# tasks file for cloudlinks
 - name: load settings
-  include_vars: settings/dropboxlinks.yml
+  include_vars: settings/cloudlinks.yml
 
 - name: create
   include_tasks: link.yml
   loop_control:
     label: "{{ item.dest }}"
   loop:
-    "{{dropboxLinks}}"
+    "{{cloudLinks}}"

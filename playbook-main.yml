@@ -8,7 +8,7 @@
   - { role: "fstrim",           tags: "fstrim"           }
   - { role: "journal",          tags: "journal"          }
   - { role: "timesync",         tags: "timesync"         }
-  - { role: "dropboxlinks",     tags: "dropboxlinks"     }
+  - { role: "cloudlinks",       tags: "cloudlinks"       }
   - { role: "bash",             tags: "bash"             }
   - { role: "userdirs",         tags: "userdirs"         }
   - { role: "libreoffice",      tags: "libreoffice"      }
