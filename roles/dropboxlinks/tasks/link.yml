@@ -8,15 +8,14 @@
     path: "{{ item.dest }}"
   register: dir
 
-- block:
-  - name: remove dir
-    file:
-      path: "{{ item.dest }}"
-      state: absent
-
-  - name: create link
-    ansible.builtin.file:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
-      state: link
+- name: remove dir
+  file:
+    path: "{{ item.dest }}"
+    state: absent
   when: dir.stat.isdir is defined and dir.stat.isdir
+
+- name: create link
+  ansible.builtin.file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
