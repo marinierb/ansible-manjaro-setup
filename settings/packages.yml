@@ -1,5 +1,6 @@
 # Defaults for packages
 packages_add:
+- chrome-gnome-shell
 - nautilus-dropbox
 - keepassxc
 - encfs
