@@ -27,7 +27,7 @@
   become: true
 
 - name: Configuring samba shares
-  template:
+  ansible.builtin.template:
     src: smb.conf
     dest: /etc/samba/smb.conf
     owner: root

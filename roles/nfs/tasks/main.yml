@@ -17,7 +17,7 @@
   become: true
 
 - name: Configuring exports
-  template:
+  ansible.builtin.template:
     src: _etc_exports
     dest: /etc/exports
     owner: root
