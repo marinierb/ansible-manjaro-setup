@@ -10,23 +10,21 @@
   become: true
   register: s
 
+- name: get main password
+  ansible.builtin.set_fact:
+    password: "{{ lookup('env', 'password') }}"
+
 - name: set samba password for main user
-  ansible.builtin.shell: "printf '{{ lookup('env', 'main') }}\n{{ lookup('env', 'password') }}\n' | smbpasswd -a {{ user }}"
+  ansible.builtin.shell: "printf '{{ password }}\n{{ password }}\n' | smbpasswd -a {{ user }}"
   become: true
   when: s.changed
 
-# - name: create media user
-#   ansible.builtin.user:
-#     name: "{{ mediaUser }}"
-#     group: "{{ mediaGroup }}"
-#     create_home: "{{ mediaUserHome }}"
-#   become: true
-#   register: s
-  
-# - name: set samba password for media user
-#   ansible.builtin.shell: "printf '{{ lookup('env', 'mediaPassword') }}\n{{ lookup('env', 'mediaPassword') }}\n' | smbpasswd -a {{ mediaUser }}"
-#   become: true
-#   when: s.changed
+- name: add user to group
+  ansible.builtin.user:
+    name: "{{user}}"
+    groups: "{{group}}"
+    append: yes
+  become: true
 
 - name: Configuring samba shares
   template:

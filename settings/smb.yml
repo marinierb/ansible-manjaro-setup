@@ -1,26 +1,20 @@
 # Defaults for smb
 packages:
 - samba
-- nautilus-share
 - manjaro-settings-samba
 
-# mediaUser: "kodi"
-# mediaGroup: "{{user}}"
-# mediaUserHome: no
+group:      sambashare
+workgroup:  maison
+hostsallow: "127. 192.168.0."
 
 shareList:
-#- { name: "Music",       path: "{{userDir}}/Music",                    read: "{{mediaUser}}", write: ""              }
-#- { name: "Pictures",    path: "{{userDir}}/Pictures",                 read: "{{mediaUser}}", write: ""              }
-#- { name: "Videos",      path: "/other/Videos",                        read: "{{mediaUser}}", write: ""              }
-#- { name: "Movies",      path: "/other/Movies",                        read: "{{mediaUser}}", write: ""              }
-#- { name: "TV",          path: "/other/TV",                            read: "{{mediaUser}}", write: ""              }
-#- { name: "LooneyTunes", path: "/other/LooneyTunes",                   read: "{{mediaUser}}", write: ""              }
-#- { name: "Other",       path: "{{userDir}}/.OtherMounted",            read: "{{mediaUser}}", write: ""              }
-#- { name: "KodiBas",     path: "{{cloudDir}}/Backups/KodiBas",  read: "{{mediaUser}}", write: "{{mediaUser}}" }
-#- { name: "KodiHaut",    path: "{{cloudDir}}/Backups/KodiHaut", read: "{{mediaUser}}", write: "{{mediaUser}}" }
-- { name: "Downloads",   path: "{{userDir}}/Downloads",                read: "{{user}}", write: "{{user}}" }
-#- { name: "Movies",      path: "/other/Movies",                        read: "{{user}}", write: "{{user}}" }
-#- { name: "TV",          path: "/other/TV",                            read: "{{user}}", write: "{{user}}" }
-#- { name: "Other",       path: "{{userDir}}/.OtherMounted",            read: "{{user}}", write: "" }
-#- { name: "KodiBas",     path: "{{cloudDir}}/Backups/KodiBas",  read: "{{user}}", write: "{{user}}" }
-#- { name: "KodiHaut",    path: "{{cloudDir}}/Backups/KodiHaut", read: "{{user}}", write: "{{user}}" }
+- { name:       Downloads,
+    path:       "{{userDir}}/Downloads",
+    writable:   "yes",
+    createmode: "0770",
+    dirmode:    "0770",
+    sharemodes: "yes",
+    guestok:    "no",
+    user:   "{{user}}"
+  }
+
