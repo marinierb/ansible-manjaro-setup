@@ -1,7 +1,6 @@
-# tasks for powermgt
+# tasks for power
 - name: load settings
-  include_vars: settings/powermgt.yml
-
+  include_vars: settings/power.yml
 
 # https://www.tecmint.com/disable-suspend-and-hibernation-in-linux/
 
