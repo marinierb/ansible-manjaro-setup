@@ -25,7 +25,7 @@ mediaShares:
 - "/other/LooneyTunes"
 mediaOpts: "(ro,all_squash,insecure,no_subtree_check)"
 
-encfsShare: "{{userDir}}/.OtherMounted"
+encfsShare: "{{userDir}}/.otherMounted"
 encfsOpts:  "(fsid=2,ro,all_squash,insecure,no_subtree_check,anongid=1000)"
 
 kodiBackupBas: "{{cloudDir}}/Backups/KodiBas"
