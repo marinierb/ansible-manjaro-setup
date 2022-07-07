@@ -5,7 +5,7 @@
 - name: add install/update hook
   ansible.builtin.copy:
     src: custom-expressvpn-post.hook
-    dest: /usr/share/libalpm/hooks
+    dest: "{{hookDir}}"
   become: true
 - name: expressvpn aur install
   aur:

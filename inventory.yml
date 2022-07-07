@@ -17,5 +17,6 @@ all:
     cloudLinuxDir:    "{{cloudDir}}/Linux"
     localLauncherDir: "{{userDir}}/.local/share/applications"
     sudoers:          "/etc/sudoers.d/{{user}}"
+    hookDir:          "/usr/share/libalpm/hooks"
     mainBackupDir:    "{{cloudLinuxDir}}/ansible/backups"
     skip_restore:     ".skiprestore"

@@ -7,7 +7,6 @@ packages:
 - virtualbox-guest-iso
 hook:
   hook:      custom-virtualbox-post.hook
-  hookDir:   /usr/share/libalpm/hooks
   script:    install-vbox-extpack.sh
   scriptDir: /usr/bin
 group: vboxusers

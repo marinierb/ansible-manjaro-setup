@@ -12,7 +12,7 @@
 - name: add install/update hook
   ansible.builtin.template:
     src:  "{{hook.hook}}"
-    dest: "{{hook.hookDir}}"
+    dest: "{{hookDir}}"
   become: true
 
 - name: install packages
