@@ -2,6 +2,12 @@
 - name: load settings
   include_vars: settings/zoneminder.yml
 
+- name: aur install
+  aur:
+    name: "{{item}}"
+    state: present
+  with_items: "{{aurPackages}}"
+
 - name: add install/update hook
   ansible.builtin.copy:
     src: custom-zoneminder-post.hook

@@ -1,4 +1,8 @@
 # defaults file for zoneminder
+aurPackages:
+- zoneminder
+- perl-sys-mmap
+- perl-sys-cpu
 zmDir: /zm
 zmOwner: http
 zmGroup: http
